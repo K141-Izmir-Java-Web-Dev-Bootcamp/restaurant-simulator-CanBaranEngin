@@ -1,5 +1,6 @@
 package org.kodluyoruz;
 
+import java.sql.SQLOutput;
 import java.util.concurrent.Callable;
 import java.util.concurrent.FutureTask;
 
@@ -20,48 +21,50 @@ public class ReceiveOrder implements Callable {
     public String call() throws Exception {
 
         if("Salad".equalsIgnoreCase(foodOrderFuture.get())){
-
-            return "Waiter : Salad order was received";
+            System.out.println("Waiter: " + this.getFoodOrderFuture().get() + " order was received");
+            return "Salad";
         }
         else if("Soup".equalsIgnoreCase(foodOrderFuture.get())){
-
-            return "Waiter : Soup order was received";
+            System.out.println("Waiter: " + this.getFoodOrderFuture().get() + " order was received");
+            return "Soup";
         }
-        if("Kofte".equalsIgnoreCase(foodOrderFuture.get())){
+        else if("Kofte".equalsIgnoreCase(foodOrderFuture.get())){
+            System.out.println("Waiter: " + this.getFoodOrderFuture().get() + " order was received");
 
-            return "Waiter : Kofte order was received";
+            return "Kofte" ;
         }
-        if("Salad".equalsIgnoreCase(foodOrderFuture.get())){
-
-            return "Waiter : Salad order was received";
+        else if("Pasta".equalsIgnoreCase(foodOrderFuture.get())){
+            System.out.println("Waiter: " + this.getFoodOrderFuture().get() + " order was received");
+            return "Pasta";
         }
-        if("Salad".equalsIgnoreCase(foodOrderFuture.get())){
-
-            return "Waiter : Salad order was received";
+        else if("Chicken Wings".equalsIgnoreCase(foodOrderFuture.get())){
+            System.out.println("Waiter: " + this.getFoodOrderFuture().get() + " order was received");
+            return "Chicken Wings";
         }
-        if("Salad".equalsIgnoreCase(foodOrderFuture.get())){
-
-            return "Waiter : Salad order was received";
+        else if("Burger".equalsIgnoreCase(foodOrderFuture.get())){
+            System.out.println("Waiter: " + this.getFoodOrderFuture().get() + " order was received");
+            return "Burger";
         }
-        if("Salad".equalsIgnoreCase(foodOrderFuture.get())){
-
-            return "Waiter : Salad order was received";
+        else if("Paella".equalsIgnoreCase(foodOrderFuture.get())){
+            System.out.println("Waiter: " + this.getFoodOrderFuture().get() + " order was received");
+            return "Paella";
         }
-        if("Salad".equalsIgnoreCase(foodOrderFuture.get())){
-
-            return "Waiter : Salad order was received";
+        else if("Pizza".equalsIgnoreCase(foodOrderFuture.get())){
+            System.out.println("Waiter: " + this.getFoodOrderFuture().get() + " order was received");
+            return "Pizza";
         }
-        if("Salad".equalsIgnoreCase(foodOrderFuture.get())){
-
-            return "Waiter : Salad order was received";
+        else if("Baklava".equalsIgnoreCase(foodOrderFuture.get())){
+            System.out.println("Waiter: " + this.getFoodOrderFuture().get() + " order was received");
+            return "Baklava";
         }
-        if("Salad".equalsIgnoreCase(foodOrderFuture.get())){
-
-            return "Waiter : Salad order was received";
+        else if("Fanta".equalsIgnoreCase(foodOrderFuture.get())){
+            System.out.println("Waiter: " + this.getFoodOrderFuture().get() + " order was received");
+            return "Fanta";
         }
 
-
-
-        return null;
+        else {
+            return null;
+        }
     }
+    
 }

@@ -16,8 +16,11 @@ public class Main {
 
 
         FutureTask<String> foodOrderFuture = new FutureTask<String>(new FoodOrder(orderSelect));
+        FutureTask<String> receiveOrderFuture = new FutureTask<String>(new ReceiveOrder(foodOrderFuture));
+
 
         tables.execute(foodOrderFuture);
+        waiters.execute(receiveOrderFuture);
 
 
 

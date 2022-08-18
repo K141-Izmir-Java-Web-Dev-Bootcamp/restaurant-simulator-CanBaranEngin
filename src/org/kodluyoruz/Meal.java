@@ -50,12 +50,12 @@ public class Meal {
 
     public static ArrayList<Meal> meals(){
         ArrayList<Meal> mealList = new ArrayList<>();
-        mealList.add(new Meal(1,"Salata",200,300));
-        mealList.add(new Meal(2,"Çorba",250,300));
-        mealList.add(new Meal(3,"Köfte",250,400));
-        mealList.add(new Meal(4,"Makarna",150,250));
-        mealList.add(new Meal(5,"Tavuk Kanat",250,400));
-        mealList.add(new Meal(6,"Hamburger",300,500));
+        mealList.add(new Meal(1,"Salad",200,300));
+        mealList.add(new Meal(2,"Soup",250,300));
+        mealList.add(new Meal(3,"Kofte",250,400));
+        mealList.add(new Meal(4,"Pasta",150,250));
+        mealList.add(new Meal(5,"Chicken Wings",250,400));
+        mealList.add(new Meal(6,"Burger",300,500));
         mealList.add(new Meal(7,"Paella",500,400));
         mealList.add(new Meal(8,"Pizza",350,500));
         mealList.add(new Meal(9,"Baklava",100,200));
@@ -71,8 +71,6 @@ public class Meal {
             if(m.getId()==id){
                 return m;
             }
-
-            
         }
         return null;
     }

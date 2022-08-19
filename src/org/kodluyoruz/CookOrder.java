@@ -23,7 +23,7 @@ public class CookOrder implements Callable {
         if("Salad".equalsIgnoreCase(receiveOrderFuture.get())){
             Thread.sleep(Meal.getMealObjById(1).getPreparingTime());
             System.out.println("Chef: " + this.getReceiveOrderFuture().get() + " order was prepared");
-            return "Take salad";
+            return "Take Salad";
         }
         else if("Soup".equalsIgnoreCase(receiveOrderFuture.get())){
             Thread.sleep(Meal.getMealObjById(2).getPreparingTime());

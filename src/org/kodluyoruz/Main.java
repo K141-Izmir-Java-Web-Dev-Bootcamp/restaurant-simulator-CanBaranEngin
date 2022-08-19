@@ -19,11 +19,20 @@ public class Main {
             FutureTask<String> foodOrderFuture = new FutureTask<String>(new FoodOrder(orderSelect));
             FutureTask<String> receiveOrderFuture = new FutureTask<String>(new ReceiveOrder(foodOrderFuture));
             FutureTask<String> cookOrderFuture = new FutureTask<>(new CookOrder(receiveOrderFuture));
+            FutureTask<String> receiveCookedOrderFuture = new FutureTask<>(new ReceiveCookedOrder(cookOrderFuture));
+            FutureTask<String> consumeFoodOrderFuture = new FutureTask<>(new ConsumeFoodOrder(receiveCookedOrderFuture));
+
             tables.execute(foodOrderFuture);
             waiters.execute(receiveOrderFuture);
             chefs.execute(cookOrderFuture);
+            waiters.execute(receiveCookedOrderFuture);
+            tables.execute(consumeFoodOrderFuture);
 
         }
+
+        waiters.shutdown();
+        chefs.shutdown();
+        tables.shutdown();
 
 
 

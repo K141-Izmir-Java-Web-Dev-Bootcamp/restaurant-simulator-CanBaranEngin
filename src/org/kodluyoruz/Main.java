@@ -7,20 +7,24 @@ import java.util.concurrent.FutureTask;
 public class Main {
 
     public static void main(String[] args) {
-        int orderSelect = (int) ((Math.random() * (10 - 1)) + 1);
 
 
         ExecutorService waiters = Executors.newFixedThreadPool(3);
         ExecutorService chefs = Executors.newFixedThreadPool(2);
         ExecutorService tables = Executors.newFixedThreadPool(5);
 
+        for (int i = 0; i < 6; i++) {
 
-        FutureTask<String> foodOrderFuture = new FutureTask<String>(new FoodOrder(orderSelect));
-        FutureTask<String> receiveOrderFuture = new FutureTask<String>(new ReceiveOrder(foodOrderFuture));
+            int orderSelect = (int) ((Math.random() * (10 - 1)) + 1);
+            FutureTask<String> foodOrderFuture = new FutureTask<String>(new FoodOrder(orderSelect));
+            FutureTask<String> receiveOrderFuture = new FutureTask<String>(new ReceiveOrder(foodOrderFuture));
+            FutureTask<String> cookOrderFuture = new FutureTask<>(new CookOrder(receiveOrderFuture));
+            tables.execute(foodOrderFuture);
+            waiters.execute(receiveOrderFuture);
+            chefs.execute(cookOrderFuture);
 
+        }
 
-        tables.execute(foodOrderFuture);
-        waiters.execute(receiveOrderFuture);
 
 
 
